@@ -106,7 +106,7 @@ function autoPlay() {
 
     if (activeIndex === imageList.length) {
         activeIndex = 0;
-    } if (counter === 24) {
+    } if (counter === 25) {
         clearInterval(clock);
     }
     imageList[activeIndex].classList.remove('d-none');
