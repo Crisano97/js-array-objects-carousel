@@ -32,9 +32,13 @@ const images = [
 
 const imageContainer = document.getElementById('image-container');
 
-images.forEach((element,index) => {
+images.forEach((element) => {
 
-    const newTitle = createNewElement (element.title);
+    const newTitle = document.createElement('span');
+    newTitle.classList.add('d-none', 'position-absolute', 'w-50', 'top-0', 'end-0', 'text-white');
+    newTitle.append(`${element.title} 
+    
+    ${element.description}`);
 
     const newImage = document.createElement('img');
     newImage.classList.add('m_img', 'd-none');
@@ -44,7 +48,8 @@ images.forEach((element,index) => {
 
 let imageList = document.querySelectorAll(".m_img");
 imageList[0].classList.remove('d-none')
-let spanList = document.querySelectorAll(".text-white");
+let spanList = document.querySelectorAll("span");
+console.log(spanList)
 spanList[0].classList.remove('d-none')
 
 const btnNext = document.getElementById('next-button');
@@ -91,8 +96,4 @@ btnPrev.addEventListener('click', function () {
 });
 
 
-function createNewElement (title) {
-    const currentElement = document.createElement('span');
-    currentElement.classList.add('d-none', 'position-absolute', 'top-0', 'end-0', 'text-white');
-    currentElement.innerHTML = title;
-}
+
