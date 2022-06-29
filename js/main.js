@@ -36,9 +36,7 @@ images.forEach((element) => {
 
     const newTitle = document.createElement('span');
     newTitle.classList.add('d-none', 'position-absolute', 'w-50', 'top-0', 'end-0', 'text-white');
-    newTitle.append(`${element.title} 
-    
-    ${element.description}`);
+    newTitle.innerHTML =`<h2>${element.title}</h2><p>${element.description}</p>`;
 
     const newImage = document.createElement('img');
     newImage.classList.add('m_img', 'd-none');
