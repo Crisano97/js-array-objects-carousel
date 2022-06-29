@@ -30,6 +30,69 @@ const images = [
     },
 ];
 
-// images.forEach((element, index, array) => {
-//     console.log(element,index);
-// })
+const imageContainer = document.getElementById('image-container');
+
+images.forEach((element,index) => {
+
+    const newTitle = createNewElement (element.title);
+
+    const newImage = document.createElement('img');
+    newImage.classList.add('m_img', 'd-none');
+    newImage.setAttribute('src', element.url);
+    imageContainer.append(newImage, newTitle);
+})
+
+let imageList = document.querySelectorAll(".m_img");
+imageList[0].classList.remove('d-none')
+let spanList = document.querySelectorAll(".text-white");
+spanList[0].classList.remove('d-none')
+
+const btnNext = document.getElementById('next-button');
+
+let activeIndex = 0;
+
+btnNext.addEventListener('click', function () {
+
+    imageList[activeIndex].classList.add('d-none');
+    spanList[activeIndex].classList.add('d-none');
+
+
+    activeIndex++;
+
+    if (activeIndex === imageList.length && activeIndex === spanList.length) {
+        activeIndex = 0;
+    }
+
+    imageList[activeIndex].classList.remove('d-none');
+    spanList[activeIndex].classList.remove('d-none');
+
+
+});
+
+const btnPrev = document.getElementById('prev-button');
+
+btnPrev.addEventListener('click', function () {
+
+
+    imageList[activeIndex].classList.add('d-none');
+    spanList[activeIndex].classList.add('d-none');
+
+    activeIndex--;
+
+    if (activeIndex === -1) {
+        activeIndex = imageList.length - 1;
+    }
+
+    imageList[activeIndex].classList.remove('d-none');
+    spanList[activeIndex].classList.remove('d-none');
+
+
+
+});
+
+
+function createNewElement (title) {
+    const currentElement = document.createElement('span');
+    currentElement.classList.add('d-none', 'position-absolute', 'top-0', 'end-0', 'text-white');
+    currentElement.innerHTML = title;
+}
