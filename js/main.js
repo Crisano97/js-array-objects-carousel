@@ -93,7 +93,26 @@ btnPrev.addEventListener('click', function () {
 
 });
 
+const clock = setInterval(autoPlay, 3000);
+let counter = 0;
+function autoPlay() {
+    imageList[activeIndex].classList.add('d-none');
+    spanList[activeIndex].classList.add('d-none');
 
+
+    activeIndex++;
+
+    counter++;
+
+    if (activeIndex === imageList.length) {
+        activeIndex = 0;
+    } if (counter === 24) {
+        clearInterval(clock);
+    }
+    imageList[activeIndex].classList.remove('d-none');
+    spanList[activeIndex].classList.remove('d-none');
+
+}
 
 
 
