@@ -29,3 +29,7 @@ const images = [
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
 ];
+
+// images.forEach((element, index, array) => {
+//     console.log(element,index);
+// })
